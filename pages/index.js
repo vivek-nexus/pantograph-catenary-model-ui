@@ -58,20 +58,20 @@ function Home() {
           <ContactWireParameters />
         </ClickHint>
         <ClickHint
-          colour="red"
-          percentageFromLeft="42%"
-          percentageFromTop="27%"
-          id="catenary-cable-parameters"
-        >
-          <CatenaryCableParameters />
-        </ClickHint>
-        <ClickHint
           colour="royalblue"
           percentageFromLeft="58%"
           percentageFromTop="33%"
           id="dropper-parameters"
         >
           <DropperParameters />
+        </ClickHint>
+        <ClickHint
+          colour="red"
+          percentageFromLeft="42%"
+          percentageFromTop="27%"
+          id="catenary-cable-parameters"
+        >
+          <CatenaryCableParameters />
         </ClickHint>
         <ClickHint
           colour="royalblue"

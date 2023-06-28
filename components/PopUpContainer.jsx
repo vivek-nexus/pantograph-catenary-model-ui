@@ -3,7 +3,7 @@ import InputField from "./InputFIeld"
 function PopUpContainer({ colour, children }) {
     return (
         <div
-            className="p-8 max-w-[40vmax] max-h-[30vmax] z-10 rounded-lg overflow-auto"
+            className="p-8 max-w-[40vmax] max-h-[30vmax] rounded-lg overflow-auto animate__animated animate__fadeIn animate__faster"
             style={{
                 borderLeft: `8px solid ${colour}`,
                 background: "rgba(255, 255, 255, 0.75)",
