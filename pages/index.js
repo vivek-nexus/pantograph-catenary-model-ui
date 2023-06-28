@@ -8,8 +8,12 @@ import CatenaryCableParameters from "../components/CatenaryCableParameters";
 import DropperParameters from "../components/DropperParameters";
 import DropperScheduleParameters from "../components/DropperScheduleParameters";
 import PantographParameters from "../components/PantographParameters";
+import { useState } from "react";
+import defaultValues from "../constants/defaultsValues";
 
 function Home() {
+
+  const [parametersObject, setParametersObject] = useState(defaultValues)
 
 
   return (
@@ -47,7 +51,10 @@ function Home() {
           percentageFromTop="30%"
           id="suspension-spring-parameters"
         >
-          <SuspensionSpringsParameters />
+          <SuspensionSpringsParameters
+            parametersObject={parametersObject}
+            setParametersObject={setParametersObject}
+          />
         </ClickHint>
         <ClickHint
           colour="orange"
@@ -55,7 +62,10 @@ function Home() {
           percentageFromTop="43%"
           id="contact-wire-parameters"
         >
-          <ContactWireParameters />
+          <ContactWireParameters
+            parametersObject={parametersObject}
+            setParametersObject={setParametersObject}
+          />
         </ClickHint>
         <ClickHint
           colour="royalblue"
@@ -63,7 +73,10 @@ function Home() {
           percentageFromTop="33%"
           id="dropper-parameters"
         >
-          <DropperParameters />
+          <DropperParameters
+            parametersObject={parametersObject}
+            setParametersObject={setParametersObject}
+          />
         </ClickHint>
         <ClickHint
           colour="red"
@@ -71,7 +84,10 @@ function Home() {
           percentageFromTop="27%"
           id="catenary-cable-parameters"
         >
-          <CatenaryCableParameters />
+          <CatenaryCableParameters
+            parametersObject={parametersObject}
+            setParametersObject={setParametersObject}
+          />
         </ClickHint>
         <ClickHint
           colour="royalblue"

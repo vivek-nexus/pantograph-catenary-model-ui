@@ -34,7 +34,7 @@ function ClickHint({ colour, percentageFromLeft, percentageFromTop, id, children
             </div>
 
             {isPopupVisible &&
-                <div className={id == "pantograph-parameters" ? `-mt-48` : ``}>
+                <div className={id == "pantograph-parameters" ? `-mt-64` : ``}>
                     <PopUpContainer
                         colour={colour}
                     >

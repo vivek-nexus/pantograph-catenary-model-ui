@@ -15,7 +15,6 @@ function DropperScheduleParameters() {
                     unit="num"
                     className="col-span-1"
                     onChange={(value) => {
-                        console.log(value)
                         setNumberOfDroppers(value)
                     }}
                 />
