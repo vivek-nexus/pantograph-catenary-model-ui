@@ -40,9 +40,8 @@ function Home() {
         >
           <Image className="h-full" src="scene.svg" />
         </div>
-        <div className="absolute right-4 bottom-4 p-6"
+        <div className="absolute right-4 bottom-4 p-6 rounded-lg"
           style={{
-            borderRadius: "16px",
             background: "rgba(87, 87, 87, 0.80)",
             backdropFilter: "blur(8px)"
           }}

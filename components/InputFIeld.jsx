@@ -29,7 +29,7 @@ function InputField({ label, defaultValue, unit, className, onChange }) {
             </style>
             <div className={`flex flex-col w-full ${className}`}>
                 <label>{label}</label>
-                <div className="relative" style={{ boxSizing: "border-box" }}>
+                <div className="relative box-border">
                     <input
                         type="number"
                         defaultValue={defaultValue}
