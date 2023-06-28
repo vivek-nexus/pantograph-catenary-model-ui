@@ -22,7 +22,7 @@ function DropperParameters({ parametersObject, setParametersObject }) {
                     unit="N m<sup>2</sup>"
                     className="col-span-1"
                     onChange={(value) => {
-                        handleValueChange("EA", value)
+                        handleValueChange("EA", parseFloat(value))
                     }}
                 />
                 <InputField
@@ -31,7 +31,7 @@ function DropperParameters({ parametersObject, setParametersObject }) {
                     unit="kg/m"
                     className="col-span-1"
                     onChange={(value) => {
-                        handleValueChange("line density", value)
+                        handleValueChange("line density", parseFloat(value))
                     }}
                 />
                 <InputField
@@ -40,7 +40,7 @@ function DropperParameters({ parametersObject, setParametersObject }) {
                     unit="kg"
                     className="col-span-1"
                     onChange={(value) => {
-                        handleValueChange("catenary cable clamp mass", value)
+                        handleValueChange("catenary cable clamp mass", parseFloat(value))
                     }}
                 />
                 <InputField
@@ -49,7 +49,7 @@ function DropperParameters({ parametersObject, setParametersObject }) {
                     unit="kg"
                     className="col-span-1"
                     onChange={(value) => {
-                        handleValueChange("contact wire clamp mass", value)
+                        handleValueChange("contact wire clamp mass", parseFloat(value))
                     }}
                 />
                 <InputField
@@ -58,7 +58,7 @@ function DropperParameters({ parametersObject, setParametersObject }) {
                     unit="m/s<sup>2</sup>"
                     className="col-span-1"
                     onChange={(value) => {
-                        handleValueChange("gravity", value)
+                        handleValueChange("gravity", parseFloat(value))
                     }}
                 />
             </div>

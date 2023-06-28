@@ -1,9 +1,59 @@
-import { useState } from "react"
-import defaultValues from "../constants/defaultsValues"
+import { useEffect, useState } from "react"
 import InputField from "./InputFIeld"
+import defaultValues from "../constants/defaultsValues"
 
-function DropperScheduleParameters() {
-    const [numberOfDroppers, setNumberOfDroppers] = useState(defaultValues["dropper schedule"]["number of droppers"])
+function DropperScheduleParameters({ parametersObject, setParametersObject }) {
+    const [numberOfDroppers, setNumberOfDroppers] = useState(parametersObject["dropper schedule"]["number of droppers"])
+
+    useEffect(() => {
+        const oldDropperSchedule = parametersObject["dropper schedule"]
+        const oldNumberOfDroppers = oldDropperSchedule["number of droppers"]
+        if ((numberOfDroppers > 0)) {
+            if (oldNumberOfDroppers < numberOfDroppers) {
+                setParametersObject({
+                    ...parametersObject,
+                    "dropper schedule": {
+                        ...oldDropperSchedule,
+                        "number of droppers": numberOfDroppers,
+                        "dropper positions":
+                            oldDropperSchedule["dropper positions"].concat(
+                                defaultValues["dropper schedule"]["dropper positions"].slice(oldNumberOfDroppers, numberOfDroppers)),
+                        "nominal lengths":
+                            oldDropperSchedule["nominal lengths"].concat(
+                                defaultValues["dropper schedule"]["nominal lengths"].slice(oldNumberOfDroppers, numberOfDroppers)),
+                        "target sag":
+                            oldDropperSchedule["target sag"].concat(
+                                defaultValues["dropper schedule"]["target sag"].slice(oldNumberOfDroppers, numberOfDroppers)),
+                    }
+                })
+            }
+            else {
+                const oldDropperSchedule = parametersObject["dropper schedule"]
+                setParametersObject({
+                    ...parametersObject,
+                    "dropper schedule": {
+                        ...oldDropperSchedule,
+                        "number of droppers": numberOfDroppers,
+                        "dropper positions": oldDropperSchedule["dropper positions"].slice(0, numberOfDroppers),
+                        "nominal lengths": oldDropperSchedule["nominal lengths"].slice(0, numberOfDroppers),
+                        "target sag": oldDropperSchedule["target sag"].slice(0, numberOfDroppers)
+                    }
+                })
+            }
+        }
+    }, [numberOfDroppers])
+
+    function handleValueChange(param, i, value) {
+        const oldArrayAtParam = parametersObject["dropper schedule"][param]
+        console.log(parametersObject["dropper schedule"])
+        setParametersObject({
+            ...parametersObject,
+            ["dropper schedule"]: {
+                ...parametersObject["dropper schedule"],
+                [param]: oldArrayAtParam.map((item, index) => index === i ? value : item)
+            }
+        })
+    }
 
     return (
         <>
@@ -11,25 +61,33 @@ function DropperScheduleParameters() {
             <div className="grid grid-cols-2 gap-4 mb-6">
                 <InputField
                     label="Number of droppers"
-                    defaultValue={defaultValues["dropper schedule"]["number of droppers"]}
+                    defaultValue={parametersObject["dropper schedule"]["number of droppers"]}
                     unit="num"
                     className="col-span-1"
                     onChange={(value) => {
-                        setNumberOfDroppers(value)
+                        setNumberOfDroppers(parseInt(value))
                     }}
                 />
                 <InputField
                     label="Encumbrance"
-                    defaultValue={defaultValues["dropper schedule"].encumbrance}
+                    defaultValue={parametersObject["dropper schedule"].encumbrance}
                     unit="m"
                     className="col-span-1"
+                    onChange={(value) => {
+                        setParametersObject({
+                            ...parametersObject,
+                            ["dropper schedule"]: {
+                                ...parametersObject["dropper schedule"],
+                                ["encumbrance"]: parseFloat(value)
+                            }
+                        })
+                    }}
                 />
             </div>
             <hr className="my-6" />
             {numberOfDroppers > 0 &&
                 <div>
-                    {[...Array(parseInt(numberOfDroppers))].map((element, i) => {
-                        console.log("Rendering " + (i + 1))
+                    {[...Array(parseFloat(numberOfDroppers))].map((element, i) => {
                         return (
                             <div key={i} className="grid grid-cols-19 gap-4 mb-6">
                                 <div className="col-span-1 flex items-end">
@@ -37,21 +95,33 @@ function DropperScheduleParameters() {
                                 </div>
                                 <InputField
                                     label="Position"
-                                    defaultValue={defaultValues["dropper schedule"]["dropper positions"][i] ?? 0}
+                                    defaultValue={parametersObject["dropper schedule"]["dropper positions"][i] ?? defaultValues["dropper schedule"]["dropper positions"][i] ?? 0}
                                     unit="m"
                                     className="col-span-6"
+                                    onChange={(value) => {
+                                        if (value != "")
+                                            handleValueChange("dropper positions", i, parseFloat(value))
+                                    }}
                                 />
                                 <InputField
                                     label="Nominal length"
-                                    defaultValue={defaultValues["dropper schedule"]["nominal lengths"][i] ?? 0}
+                                    defaultValue={parametersObject["dropper schedule"]["nominal lengths"][i] ?? defaultValues["dropper schedule"]["nominal lengths"][i] ?? 0}
                                     unit="m"
                                     className="col-span-6"
+                                    onChange={(value) => {
+                                        if (value != "")
+                                            handleValueChange("nominal lengths", i, parseFloat(value))
+                                    }}
                                 />
                                 <InputField
                                     label="Target sag"
-                                    defaultValue={defaultValues["dropper schedule"]["target sag"][i] ?? 0}
+                                    defaultValue={parametersObject["dropper schedule"]["target sag"][i] ?? defaultValues["dropper schedule"]["target sag"][i] ?? 0}
                                     unit="m"
                                     className="col-span-6"
+                                    onChange={(value) => {
+                                        if (value != "")
+                                            handleValueChange("target sag", i, parseFloat(value))
+                                    }}
                                 />
                             </div>
                         )

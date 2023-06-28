@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "../components/Image";
-import InputField from "../components/InputFIeld";
 import ClickHint from "../components/ClickHint";
 import SuspensionSpringsParameters from "../components/SuspensionSpringsParameters";
 import ContactWireParameters from "../components/ContactWireParameters";
@@ -8,12 +7,19 @@ import CatenaryCableParameters from "../components/CatenaryCableParameters";
 import DropperParameters from "../components/DropperParameters";
 import DropperScheduleParameters from "../components/DropperScheduleParameters";
 import PantographParameters from "../components/PantographParameters";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import defaultValues from "../constants/defaultsValues";
 
 function Home() {
 
   const [parametersObject, setParametersObject] = useState(defaultValues)
+
+  useEffect(() => {
+    let data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(parametersObject))
+    let a = document.querySelector("#download-as-json")
+    a.href = 'data:' + data;
+    a.download = 'params.json';
+  }, [parametersObject])
 
 
   return (
@@ -44,6 +50,9 @@ function Home() {
           <h1
             className="text-center text-white"
           >Pantograph catenary model <br /> simulation</h1>
+          <div className="text-center mt-4">
+            <a className="font-bold text-white underline underline-offset-4 cursor-pointer" id="download-as-json">Download entered values as JSON</a>
+          </div>
         </div>
         <ClickHint
           colour="cyan"
@@ -95,7 +104,10 @@ function Home() {
           percentageFromTop="8%"
           id="dropper-schedule-parameters"
         >
-          <DropperScheduleParameters />
+          <DropperScheduleParameters
+            parametersObject={parametersObject}
+            setParametersObject={setParametersObject}
+          />
         </ClickHint>
         <ClickHint
           colour="green"
@@ -103,7 +115,10 @@ function Home() {
           percentageFromTop="50%"
           id="pantograph-parameters"
         >
-          <PantographParameters />
+          <PantographParameters
+            parametersObject={parametersObject}
+            setParametersObject={setParametersObject}
+          />
         </ClickHint>
       </div>
     </div>

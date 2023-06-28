@@ -20,7 +20,7 @@ function SuspensionSpringsParameters({ parametersObject, setParametersObject }) 
                     unit="N m<sup>2</sup>"
                     className="col-span-1"
                     onChange={(value) => {
-                        handleValueChange("contact wire suspension spring", value)
+                        handleValueChange("contact wire suspension spring", parseFloat(value))
                     }}
                 />
                 <InputField
@@ -29,12 +29,7 @@ function SuspensionSpringsParameters({ parametersObject, setParametersObject }) 
                     unit="N m<sup>2</sup>"
                     className="col-span-1"
                     onChange={(value) => {
-                        setParametersObject({
-                            ...parametersObject,
-                            "catenary cable suspension spring": {
-                                "stiffness": value
-                            }
-                        })
+                        handleValueChange("catenary cable suspension spring", parseFloat(value))
                     }}
                 />
             </div>

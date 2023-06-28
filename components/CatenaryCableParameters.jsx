@@ -22,7 +22,7 @@ function CatenaryCableParameters({ parametersObject, setParametersObject }) {
                     unit="N m<sup>2</sup>"
                     className="col-span-1"
                     onChange={(value) => {
-                        handleValueChange("EI", value)
+                        handleValueChange("EI", parseFloat(value))
                     }}
                 />
                 <InputField
@@ -31,7 +31,7 @@ function CatenaryCableParameters({ parametersObject, setParametersObject }) {
                     unit="m"
                     className="col-span-1"
                     onChange={(value) => {
-                        handleValueChange("height", value)
+                        handleValueChange("height", parseFloat(value))
                     }}
                 />
                 <InputField
@@ -40,7 +40,7 @@ function CatenaryCableParameters({ parametersObject, setParametersObject }) {
                     unit="kg/m"
                     className="col-span-1"
                     onChange={(value) => {
-                        handleValueChange("line density", value)
+                        handleValueChange("line density", parseFloat(value))
                     }}
                 />
                 <InputField
@@ -49,7 +49,7 @@ function CatenaryCableParameters({ parametersObject, setParametersObject }) {
                     unit="m"
                     className="col-span-1"
                     onChange={(value) => {
-                        handleValueChange("span", value)
+                        handleValueChange("span", parseFloat(value))
                     }}
                 />
                 <InputField
@@ -58,7 +58,7 @@ function CatenaryCableParameters({ parametersObject, setParametersObject }) {
                     unit="N"
                     className="col-span-1"
                     onChange={(value) => {
-                        handleValueChange("tension", value)
+                        handleValueChange("tension", parseFloat(value))
                     }}
                 />
                 <InputField
@@ -67,7 +67,7 @@ function CatenaryCableParameters({ parametersObject, setParametersObject }) {
                     unit="m/s<sup>2</sup>"
                     className="col-span-1"
                     onChange={(value) => {
-                        handleValueChange("gravity", value)
+                        handleValueChange("gravity", parseFloat(value))
                     }}
                 />
             </div>
