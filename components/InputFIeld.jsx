@@ -45,7 +45,7 @@ function InputField({ label, defaultValue, unit, className, onChange }) {
                             e.stopPropagation()
                         }}
                     />
-                    <p className="absolute right-[0.75rem] top-[30%]">{ReactHtmlParser(unit)}</p>
+                    <p className="text-slate-400 absolute right-[0.75rem] top-[30%]">{ReactHtmlParser(unit)}</p>
                 </div>
             </div>
         </>
