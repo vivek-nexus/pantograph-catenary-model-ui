@@ -1,5 +1,3 @@
-import InputField from "./InputFIeld"
-
 function PopUpContainer({ colour, children }) {
     return (
         <div

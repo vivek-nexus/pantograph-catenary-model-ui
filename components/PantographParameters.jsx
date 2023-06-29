@@ -2,6 +2,7 @@ import InputField from "./InputFIeld"
 
 function PantographParameters({ parametersObject, setParametersObject }) {
 
+    // Set parametersObject with new value
     function handleValueChange(pantograph, param, value) {
         setParametersObject({
             ...parametersObject,

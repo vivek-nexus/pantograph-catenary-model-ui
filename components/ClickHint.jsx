@@ -24,6 +24,7 @@ function ClickHint({ colour, percentageFromLeft, percentageFromTop, id, children
                 top: percentageFromTop
             }}
         >
+            {/* Dot */}
             <div
                 className="p-2 cursor-pointer"
                 onClick={() => setIsPopupVisible(!isPopupVisible)}>
@@ -32,7 +33,7 @@ function ClickHint({ colour, percentageFromLeft, percentageFromTop, id, children
                     style={{ backgroundColor: colour }}
                 ></div>
             </div>
-
+            {/* Pop up */}
             {isPopupVisible &&
                 <div className={id == "pantograph-parameters" ? `-mt-64` : ``}>
                     <PopUpContainer

@@ -2,6 +2,7 @@ import InputField from "./InputFIeld"
 
 function DropperParameters({ parametersObject, setParametersObject }) {
 
+    // Set parametersObject with new value
     function handleValueChange(param, value) {
         setParametersObject({
             ...parametersObject,

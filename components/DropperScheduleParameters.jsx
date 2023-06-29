@@ -8,7 +8,9 @@ function DropperScheduleParameters({ parametersObject, setParametersObject }) {
     useEffect(() => {
         const oldDropperSchedule = parametersObject["dropper schedule"]
         const oldNumberOfDroppers = oldDropperSchedule["number of droppers"]
+        // Add or remove items only if dropper count is more than 0 
         if ((numberOfDroppers > 0)) {
+            // Add items since dropper count has increased
             if (oldNumberOfDroppers < numberOfDroppers) {
                 setParametersObject({
                     ...parametersObject,
@@ -27,6 +29,7 @@ function DropperScheduleParameters({ parametersObject, setParametersObject }) {
                     }
                 })
             }
+            // Remove items since dropper count has decreased
             else {
                 const oldDropperSchedule = parametersObject["dropper schedule"]
                 setParametersObject({
@@ -43,6 +46,7 @@ function DropperScheduleParameters({ parametersObject, setParametersObject }) {
         }
     }, [numberOfDroppers])
 
+    // Set parametersObject with new value
     function handleValueChange(param, i, value) {
         const oldArrayAtParam = parametersObject["dropper schedule"][param]
         console.log(parametersObject["dropper schedule"])

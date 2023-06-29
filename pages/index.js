@@ -34,12 +34,14 @@ function Home() {
 
 
       <div className="h-[95vh] relative w-fit mx-auto">
+        {/* Background image for scene */}
         <div
           className="h-full w-fit mx-auto border-2 rounded-[28px] overflow-clip"
         // style={{ boxShadow: "0px 0px 32px 8px grey" }}
         >
           <Image className="h-full" src="scene.svg" />
         </div>
+        {/*Bottom right page title and download*/}
         <div className="absolute right-4 bottom-4 p-6 rounded-lg"
           style={{
             background: "rgba(87, 87, 87, 0.80)",
@@ -53,6 +55,7 @@ function Home() {
             <a className="font-bold text-white underline underline-offset-4 cursor-pointer" id="download-as-json">Download entered values as JSON</a>
           </div>
         </div>
+        {/* Dots or Click hints */}
         <ClickHint
           colour="cyan"
           percentageFromLeft="15%"
