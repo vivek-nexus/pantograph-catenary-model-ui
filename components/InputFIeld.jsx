@@ -38,6 +38,12 @@ function InputField({ label, defaultValue, unit, className, onChange }) {
                             if (onChange)
                                 onChange(event.target.value);
                         }}
+                        onWheel={(e) => {
+                            // Prevent the input value change
+                            e.target.blur()
+                            // Prevent the page/container scrolling
+                            e.stopPropagation()
+                        }}
                     />
                     <p className="absolute right-[0.75rem] top-[30%]">{ReactHtmlParser(unit)}</p>
                 </div>

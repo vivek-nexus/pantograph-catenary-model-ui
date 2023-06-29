@@ -14,6 +14,14 @@ function Home() {
 
   const [parametersObject, setParametersObject] = useState(defaultValues)
 
+  // Warn about data reset in events like user refreshes the page
+  useEffect(() => {
+    window.onbeforeunload = function () {
+      return "";
+    }
+  }, [])
+
+  // prepare JSON download data, whenever parametersObject changes
   useEffect(() => {
     let data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(parametersObject))
     let a = document.querySelector("#download-as-json")
