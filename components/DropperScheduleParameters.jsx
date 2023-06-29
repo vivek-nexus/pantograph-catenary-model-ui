@@ -62,7 +62,7 @@ function DropperScheduleParameters({ parametersObject, setParametersObject }) {
     return (
         <>
             <h3 className="mb-6 text-black">Dropper arrangement</h3>
-            <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="grid grid-cols-2 gap-4 items-end mb-6">
                 <InputField
                     label="Number of droppers"
                     defaultValue={parametersObject["dropper schedule"]["number of droppers"]}
@@ -93,7 +93,7 @@ function DropperScheduleParameters({ parametersObject, setParametersObject }) {
                 <div>
                     {[...Array(parseFloat(numberOfDroppers))].map((element, i) => {
                         return (
-                            <div key={i} className="grid grid-cols-19 gap-4 mb-6">
+                            <div key={i} className="grid grid-cols-19 gap-4 items-end mb-6">
                                 <div className="col-span-1 flex items-end">
                                     <p className="mb-3 text-black font-bold">{i + 1}</p>
                                 </div>

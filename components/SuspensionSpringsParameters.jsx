@@ -15,7 +15,7 @@ function SuspensionSpringsParameters({ parametersObject, setParametersObject }) 
     return (
         <>
             <h3 className="mb-6 text-black">Suspension springs</h3>
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-4 items-end">
                 <InputField
                     label="Contact wire suspension spring stiffness"
                     defaultValue={parametersObject["contact wire suspension spring"]["stiffness"]}

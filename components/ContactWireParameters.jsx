@@ -16,7 +16,7 @@ function ContactWireParameters({ parametersObject, setParametersObject }) {
     return (
         <>
             <h3 className="mb-6 text-black">Contact wire</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 items-end">
                 <InputField
                     label="EI"
                     defaultValue={parametersObject["contact wire"].EI}

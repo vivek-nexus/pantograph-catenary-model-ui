@@ -16,7 +16,7 @@ function DropperParameters({ parametersObject, setParametersObject }) {
     return (
         <>
             <h3 className="mb-6 text-black">Droppers</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 items-end">
                 <InputField
                     label="EA"
                     defaultValue={parametersObject.droppers.EA}

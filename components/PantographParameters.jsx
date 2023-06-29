@@ -16,7 +16,7 @@ function PantographParameters({ parametersObject, setParametersObject }) {
     return (
         <>
             <h3 className="mb-6 text-black">Pantograph 1</h3>
-            <div className="grid grid-cols-2 gap-4 mb-4">
+            <div className="grid grid-cols-2 gap-4 items-end mb-4">
                 <InputField
                     label="X initial"
                     defaultValue={parametersObject["pantograph 1"].xinit}
@@ -54,7 +54,7 @@ function PantographParameters({ parametersObject, setParametersObject }) {
                     }}
                 />
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4 items-end">
                 <InputField
                     label="Mass"
                     defaultValue={parametersObject["pantograph 1"].m}
@@ -85,7 +85,7 @@ function PantographParameters({ parametersObject, setParametersObject }) {
             </div>
             <hr className="my-6" />
             <h3 className="mb-6 text-black">Pantograph 3</h3>
-            <div className="grid grid-cols-2 gap-4 mb-4">
+            <div className="grid grid-cols-2 gap-4 items-end mb-4">
                 <InputField
                     label="X initial"
                     defaultValue={parametersObject["pantograph 3"].xinit}
@@ -123,7 +123,7 @@ function PantographParameters({ parametersObject, setParametersObject }) {
                     }}
                 />
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4 items-end">
                 <InputField
                     label="Mass 1 (m1)"
                     defaultValue={parametersObject["pantograph 3"].m1}
